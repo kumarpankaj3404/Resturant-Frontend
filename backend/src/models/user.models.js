@@ -50,7 +50,7 @@ userSchema.pre("save", async function(next){
         return next();
     }
     this.password = await bcrypt.hash(this.password, 10);
-    if(this.role === "user"){
+    if(this.role === "user" || this.role === "admin"){
         this.isValidated = true; // Automatically validate users
     }
     next();

@@ -1,7 +1,7 @@
 import mongoose,{Schema} from "mongoose";
 
 const photoSchema = new Schema({
-    url:{
+    resturantPhoto:{
         type: String,
         required: true,
     },
