@@ -24,7 +24,16 @@ const reservationSchema = new Schema({
         type: Number,
         required: true,
         min: [1, "At least one guest is required"]
-    }
+    },
+    table:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Table",
+    },
+    status:{
+        type: String,
+        enum: ["Confirmed", "Cancelled","Completed", "Pending"],
+        default: "Pending"
+    },
 },{ timestamps: true });
 
 export const Reservation = mongoose.model("Reservation", reservationSchema);

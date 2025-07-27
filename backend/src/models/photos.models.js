@@ -9,7 +9,7 @@ const photoSchema = new Schema({
         type: String,
         required: true,
         enum: ["Food", "Interior","Exterior", "Staff", "Events"]
-    },
+    }
 })
 
 export const Photos = mongoose.model("Photos", photoSchema);
