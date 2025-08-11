@@ -16,10 +16,12 @@ const menuSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-        maxlength: [40, "Name cannot exceed 40 characters"]
+        maxlength: [40, "Name cannot exceed 40 characters"],
+        unique: true
     },
     menuThumbnail:{
-        type: String
+        type: String,
+        required: true
     },
     price:{
         type: Number,

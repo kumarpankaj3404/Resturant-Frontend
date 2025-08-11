@@ -56,11 +56,11 @@ userSchema.pre("save", async function(next){
     next();
 })
 
-userSchema.methods.isPasswordCorrect = async function(enteredPassword){
-    return await bcrypt.compare(
-        enteredPassword,
-        this.password
-    )
+userSchema.methods.isPasswordCorrect = async function (password) {
+    if (!this.password) {
+        throw new Error("Password not set on user document.");
+    }
+    return await bcrypt.compare(password, this.password);
 }
 
 userSchema.methods.generateAccessToken = function(){

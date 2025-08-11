@@ -1,4 +1,4 @@
-class ApiRespose{
+class ApiResponse{
     constructor(
         statucsCode,
         data,
@@ -10,4 +10,4 @@ class ApiRespose{
         this.success = statucsCode<400;
     }
 }
-export { ApiRespose }
+export { ApiResponse }

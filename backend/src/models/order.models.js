@@ -10,10 +10,6 @@ const orderItemsSchema = new Schema({
         type: Number,
         required: true,
         min: [1, "Quantity must be at least 1"]
-    },
-    price:{
-        type: Number,
-        required: true
     }
 }, { _id: false });       
 const orderSchema = new Schema({
@@ -35,8 +31,8 @@ const orderSchema = new Schema({
     },
     payment:{
         type: String,
-        enum: ["Cash", "Card", "Online"],
-        default: "Cash"
+        enum: ["Ofline", "Online"],
+        default: "Ofline"
     },
     orderNumber:{
         type: String,
@@ -56,4 +52,5 @@ orderSchema.pre("save", function(next) {
     }
     next();
 });
+
 export const Order = mongoose.model("Order", orderSchema);
