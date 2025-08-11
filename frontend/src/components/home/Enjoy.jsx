@@ -1,0 +1,54 @@
+
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ENJOY_SECTION, IMAGES } from '../../utils/constants';
+
+const Enjoy = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    const el = document.getElementById('address-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section className="w-full flex flex-col md:flex-row min-h-[50vh] md:h-[50vh] " id="address-section">
+
+      {/* Left Content */}
+      <div className="flex flex-col justify-center w-full px-4 py-8 sm:px-6 md:px-12 lg:px-24 space-y-4 text-left bg-[#F6ECE3] md:w-1/2 h-[50vh] dark:bg-[#222629]">
+        <h1 className="text-2xl font-bold text-black dark:text-white sm:text-3xl md:text-4xl font-heading">
+          {ENJOY_SECTION.title}
+        </h1>
+        <h2 className="text-lg font-medium text-gray-800 dark:text-gray-100 sm:text-xl md:text-2xl font-heading">
+          {ENJOY_SECTION.subtitle}
+        </h2>
+        <p className="text-sm text-gray-600 dark:text-gray-300 sm:text-base md:text-lg font-body">
+          {ENJOY_SECTION.description}
+        </p>
+        <div className="pt-2">
+          <button
+            onClick={handleClick}
+            className="px-6 py-2 text-black dark:text-white transition border border-black dark:border-white hover:bg-red-800 hover:text-white font-body dark:hover:bg-[#86C232] dark:hover:text-black"
+          >
+            {ENJOY_SECTION.buttonText}
+          </button>
+        </div>
+      </div>
+
+      {/* Right Image */}
+      <div className="w-full md:w-1/2 h-[50vh]">
+        <img
+          src={IMAGES.enjoyImage}
+          alt="Enjoy moment"
+          loading="lazy"
+          className="object-cover w-full h-full"
+        />
+      </div>
+
+    </section>
+  );
+};
+
+export default Enjoy;
