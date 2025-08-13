@@ -2,6 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DRINK_SECTION, IMAGES } from '../../utils/constants';
+import {animate, motion} from "motion/react";
 
 const Drink = () => {
   const navigate = useNavigate();
@@ -25,9 +26,24 @@ const Drink = () => {
 
       {/* Right Content */}
       <div className="flex flex-col justify-center w-full px-4 py-8 space-y-4 text-left sm:px-6 md:px-12 lg:px-24 bg-white md:w-1/2 h-[50vh] dark:bg-[#6B6E70]">
-        <h1 className="text-2xl font-bold text-black dark:text-white sm:text-3xl md:text-4xl font-heading">
-          {DRINK_SECTION.title}
-        </h1>
+      <motion.div 
+          initial={{ opacity: 0, x: +80 }}
+          whileInView={
+            { opacity: 1,
+               x: 0,
+               transition:{
+                 type: "spring",
+                 stiffness: 300,
+                 damping:12,
+                 duration:1
+                 }
+            }}
+          viewport={{once:true}}
+        >
+          <h1 className="text-2xl font-bold text-black dark:text-white sm:text-3xl md:text-4xl font-heading">
+            {DRINK_SECTION.title}
+          </h1>
+        </motion.div>
         <h2 className="text-lg font-medium text-gray-800 dark:text-gray-100 sm:text-xl md:text-2xl font-heading">
           {DRINK_SECTION.subtitle}
         </h2>

@@ -62,7 +62,7 @@ export const NAV_LINKS = [
 // Sections
 export const HERO_SECTION = {
   title: "Welcome to",
-  subtitle: "THE PANKY PUNKY PLACE",
+  subtitle: "THAT CHINESE REESTAURANT",
   buttonText: "EXPLORE MENU"
 };
 
@@ -128,7 +128,8 @@ export const RESERVATION_SECTION = {
   cancelInfo: "To cancel, please call us directly."
 };
 
-export const RESERVATION_TIMES = [
+export const RESERVATION_TIMES_FROM = [
+  { value: "10:00", label: "10:00 AM" },
   { value: "11:00", label: "11:00 AM" },
   { value: "12:00", label: "12:00 PM" },
   { value: "13:00", label: "1:00 PM" },
@@ -138,6 +139,20 @@ export const RESERVATION_TIMES = [
   { value: "20:00", label: "8:00 PM" },
   { value: "21:00", label: "9:00 PM" },
 ];
+
+export const RESERVATION_TIMES_TO = [
+  { value: "11:00", label: "11:00 AM" },
+  { value: "12:00", label: "12:00 PM" },
+  { value: "13:00", label: "1:00 PM" },
+  { value: "14:00", label: "2:00 PM" },
+  { value: "18:00", label: "6:00 PM" },
+  { value: "19:00", label: "7:00 PM" },
+  { value: "20:00", label: "8:00 PM" },
+  { value: "21:00", label: "9:00 PM" },
+  { value: "22:00", label: "10:00 PM" },
+];
+
+
 
 export const PEOPLE_OPTIONS = Array.from({ length: 8 }, (_, i) => {
   const count = i + 1;

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { RESERVATION_SECTION, IMAGES, RESERVATION_TIMES, PEOPLE_OPTIONS } from '../../utils/constants';
+import { RESERVATION_SECTION, IMAGES, RESERVATION_TIMES_FROM,RESERVATION_TIMES_TO, PEOPLE_OPTIONS } from '../../utils/constants';
 import Button from '../common/Button';
 import InputField from '../reservation/InputField';
 import SelectField from '../reservation/SelectField';
@@ -29,8 +29,8 @@ const ReservationSection = () => {
 
     // Validate time range
     if (formData.timeFrom && formData.timeTo) {
-      const fromIndex = RESERVATION_TIMES.findIndex((t) => t.value === formData.timeFrom);
-      const toIndex = RESERVATION_TIMES.findIndex((t) => t.value === formData.timeTo);
+      const fromIndex = RESERVATION_TIMES_FROM.findIndex((t) => t.value === formData.timeFrom);
+      const toIndex = RESERVATION_TIMES_TO.findIndex((t) => t.value === formData.timeTo);
       if (toIndex <= fromIndex) {
         alert("Please select a 'To' time later than 'From' time.");
         return;
@@ -95,7 +95,8 @@ const ReservationSection = () => {
                   label="Time From"
                   value={formData.timeFrom}
                   onChange={handleInputChange}
-                  options={RESERVATION_TIMES}
+                  options={RESERVATION_TIMES_FROM}
+                  placeholder='Time From'
                   required
                 />
 
@@ -105,7 +106,8 @@ const ReservationSection = () => {
                   label="Time To"
                   value={formData.timeTo}
                   onChange={handleInputChange}
-                  options={RESERVATION_TIMES}
+                  options={RESERVATION_TIMES_TO}
+                  placeholder='Time Till'
                   required
                 />
 
