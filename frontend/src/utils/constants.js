@@ -1,7 +1,7 @@
 
 
 // Restaurant Information
-export const RESTAURANT_NAME = "THE PANKY PUNKY PLACE";
+export const RESTAURANT_NAME = "THAT INDIAN RESTAURANT";
 export const RESTAURANT_TYPE = "Indian Restaurant";
 export const RESTAURANT_SLOGAN = "Authentic Indian Cuisine";
 
@@ -62,7 +62,6 @@ export const NAV_LINKS = [
 // Sections
 export const HERO_SECTION = {
   title: "Welcome to",
-  subtitle: "THAT CHINESE REESTAURANT",
   buttonText: "EXPLORE MENU"
 };
 

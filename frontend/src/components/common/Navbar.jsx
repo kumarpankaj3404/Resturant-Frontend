@@ -32,6 +32,10 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navigateHome = () =>{
+    navigate("/");
+  }
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 px-4 py-4 shadow-sm backdrop-blur-md transition-transform duration-300 ${
@@ -42,7 +46,11 @@ const Navbar = () => {
 
       <div className="relative flex items-center justify-between mx-auto max-w-7xl">
         <div className="text-xl font-bold ">
-          <div className="px-4 py-2 text-red-800 dark:text-[#86C232] bg-white border-2 border-gray-500 rounded-full dark:bg-black font-heading">
+          <div
+           className="px-4 py-2 cursor-pointer text-red-800 dark:text-[#86C232] bg-white border-2 border-gray-500 rounded-full dark:bg-black font-heading"
+            onClick={navigateHome}
+            
+          >
             {RESTAURANT_NAME}
           </div>
         </div>

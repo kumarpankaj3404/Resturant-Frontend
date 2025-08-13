@@ -1,5 +1,5 @@
 import React from "react";
-import { HERO_SECTION, IMAGES } from "../../utils/constants";
+import { HERO_SECTION, IMAGES,RESTAURANT_NAME } from "../../utils/constants";
 import Button from "../common/Button";
 import { useNavigate } from "react-router-dom";
 import { easeInOut, easeOut, motion } from "motion/react";
@@ -50,7 +50,7 @@ const HeroSection = () => {
             duration:0.75
           }}
         >
-          {HERO_SECTION.subtitle}
+          {RESTAURANT_NAME}
         </motion.h2>
 
         <motion.button
@@ -65,7 +65,7 @@ const HeroSection = () => {
           <motion.div
             whileHover={{scale:1.2}}
             whileTap={{scale:0.8}}
-            className="px-2  text-sm font-light font-body rounded-full bg-red-500 py-3 border-2 sm:px-3 sm:py-2   "
+            className="px-2  text-sm font-light font-body rounded-full bg-red-500 py-3 border-2 sm:px-3 sm:py-2  dark:bg-[#86C232]  "
 
           >
             LOOK MENU
