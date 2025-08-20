@@ -8,8 +8,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['"Merienda"', 'cursive'],
-        body: ['"Poppins"', 'sans-serif'],
+      //  heading: ['"Playfair Display"', 'serif'], 
+       heading: ['"Bricolage Grotesque"', 'sans-serif'],
+        body: ['"Quicksand"', 'sans-serif'], 
       },
     },
   },

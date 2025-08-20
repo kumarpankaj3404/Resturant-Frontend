@@ -53,13 +53,13 @@ const ReservationSection = () => {
   const today = new Date().toISOString().split('T')[0];
 
   return (
-    <section className="flex py-16 bg-[#F6ECE3] sm:py-24 font-body dark:bg-[#6d6e6f]">
+    <section className="flex py-16 bg-[#d8c6ba] sm:py-24 font-body dark:bg-[#6d6e6f]">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
           {/* Form */}
           <div className="order-2 lg:order-1">
           <div className="mb-8 text-center sm:col-span-2 font-heading">
-    <h2 className="text-4xl font-bold text-red-800 dark:text-[#86C232]">{RESERVATION_SECTION.title}</h2>
+    <h2 className="text-4xl font-bold text-[#583f36] dark:text-[#86C232]">{RESERVATION_SECTION.title}</h2>
     <p className="mt-2 text-lg text-gray-600 dark:text-white">{RESERVATION_SECTION.subtitle}</p>
   </div> 
 
@@ -155,7 +155,7 @@ const ReservationSection = () => {
                   type="submit"
                   variant="primary"
                   size="large"
-                  className="w-full  hover:text-yellow-100 hover:bg-red-800  font-body dark:bg-[#82c91e]  dark:text-black "
+                  className="w-full  hover:text-yellow-100 hover:bg-[#7a5f55]  font-body dark:bg-[#82c91e]  dark:text-black "
                 >
                   {RESERVATION_SECTION.buttonText}
                 </Button>

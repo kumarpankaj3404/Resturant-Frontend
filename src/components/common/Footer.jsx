@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { CONTACT_INFO, SOCIAL_LINKS, FOOTER_SECTION, IMAGES } from '../../utils/constants';
+import { CONTACT_INFO, SOCIAL_LINKS,RESTAURANT_NAME, IMAGES } from '../../utils/constants';
 import {
   MapPinIcon,
   PhoneIcon,
@@ -24,35 +24,35 @@ const Footer = () => {
   };
 
   return (
-    <footer className="text-white bg-black">
+    <footer className="text-white bg-[#48352f]">
       <div className="px-6 py-12 mx-auto max-w-7xl sm:px-8 lg:px-12">
         <div className="grid gap-12 sm:grid-cols-2">
           {/* Contact Info */}
           <div>
-            <h3 className="mb-6 text-2xl font-bold font-heading">{FOOTER_SECTION.contactTitle}</h3>
+            <h3 className="mb-6 text-2xl font-bold font-heading">CONTACT US</h3>
             <div className="max-w-md space-y-6 text-base">
               <div className="flex items-start gap-4 font-body">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-red-600/20 dark:bg-[#86C232]/20">
-                  <MapPinIcon className="w-6 h-6 text-red-500 dark:text-[#86C232]" />
+                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#bd9a8d]/20 dark:bg-[#86C232]/20">
+                  <MapPinIcon className="w-6 h-6 text-[#bd9a8d] dark:text-[#86C232]" />
                 </div>
                 <p>{CONTACT_INFO.address}</p>
               </div>
               <div className="flex items-start gap-4 font-body">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-red-600/20 dark:bg-[#86C232]/20">
-                  <PhoneIcon className="w-6 h-6 text-red-500 dark:text-[#86C232] " />
+                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#bd9a8d]/20 dark:bg-[#86C232]/20">
+                  <PhoneIcon className="w-6 h-6 text-[#bd9a8d] dark:text-[#86C232] " />
                 </div>
                 <p>{CONTACT_INFO.phone}</p>
               </div>
               <div className="flex items-start gap-4 font-body">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-red-600/20 dark:bg-[#86C232]/20">
-                  <EnvelopeIcon className="w-6 h-6 text-red-500 dark:text-[#86C232]" />
+                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#bd9a8d]/20 dark:bg-[#86C232]/20">
+                  <EnvelopeIcon className="w-6 h-6 text-[#bd9a8d] dark:text-[#86C232]" />
                 </div>
                 <p>{CONTACT_INFO.email}</p>
               </div>
 
               {/* Added margin-top here for spacing */}
               
-                <h4 className="mb-6 text-2xl font-bold font-heading">{FOOTER_SECTION.openingTitle}</h4>
+                <h4 className="mb-6 text-2xl font-bold font-heading">OPENING HOURS</h4>
                 <ul className="space-y-1 text-gray-300 font-body">
                   <li>Weekdays:  {CONTACT_INFO.openingHours.weekdays}</li>
                   <li>Saturday: {CONTACT_INFO.openingHours.saturday}</li>
@@ -64,7 +64,7 @@ const Footer = () => {
 
           {/* Gallery with smaller images */}
           <div>
-            <h3 className="mb-6 text-2xl font-bold font-heading">{FOOTER_SECTION.galleryTitle}</h3>
+            <h3 className="mb-6 text-2xl font-bold font-heading">GALLERY</h3>
             <div className="grid max-w-md grid-cols-3 gap-3">
               {IMAGES.galleryImages.slice(0, 9).map((image, index) => (
                 <div
@@ -103,7 +103,7 @@ const Footer = () => {
             {/* Close button - top right outside image */}
             <button
               onClick={() => setSelectedImageIndex(null)}
-              className="absolute right-0 text-4xl text-white transition -top-10 hover:text-red-500 "
+              className="absolute right-0 text-4xl text-white transition -top-10 hover:text-[#bd9a8d] "
               aria-label="Close modal"
             >
               ×
@@ -131,24 +131,24 @@ const Footer = () => {
       )}
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-800">
+      <div className="border-t border-[#bd9a8d]">
   <div className="flex flex-col items-center justify-between gap-4 px-6 py-5 mx-auto max-w-7xl sm:flex-row">
     <div className="flex space-x-6 font-body">
-      <a href={SOCIAL_LINKS.facebook} className="flex items-center transition hover:text-red-500 hover:dark:text-[#86C232]">
+      <a href={SOCIAL_LINKS.facebook} className="flex items-center transition hover:text-[#bd9a8d] hover:dark:text-[#86C232]">
         <FaFacebookF className="w-5 h-5 mr-1" />
         Facebook
       </a>
-      <a href={SOCIAL_LINKS.twitter} className="flex items-center transition hover:text-red-500 hover:dark:text-[#86C232]">
+      <a href={SOCIAL_LINKS.twitter} className="flex items-center transition hover:text-[#bd9a8d] hover:dark:text-[#86C232]">
         <FaTwitter className="w-5 h-5 mr-1" />
         Twitter
       </a>
-      <a href={SOCIAL_LINKS.instagram} className="flex items-center transition hover:text-red-500 hover:dark:text-[#86C232]">
+      <a href={SOCIAL_LINKS.instagram} className="flex items-center transition hover:text-[#bd9a8d] hover:dark:text-[#86C232]">
         <FaInstagram className="w-5 h-5 mr-1" />
         Instagram
       </a>
     </div>
-    <div className="text-xs text-center text-gray-400 sm:text-sm sm:text-left font-body">
-      {FOOTER_SECTION.copyright}
+    <div className="text-xs text-center text-[#f4f3f3] sm:text-sm sm:text-left font-body">
+      © 2025 {RESTAURANT_NAME} . All Rights Reserved.
     </div>
   </div>
 </div>

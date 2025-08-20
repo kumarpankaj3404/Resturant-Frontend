@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { EAT_SECTION, IMAGES } from '../../utils/constants';
+import { IMAGES } from '../../utils/constants';
 import {animate, motion} from "motion/react";
 
 const Eat = () => {
@@ -31,25 +31,25 @@ const Eat = () => {
           viewport={{once:true}}
         >
           <h1 className="text-2xl font-bold text-black dark:text-white sm:text-3xl md:text-4xl font-heading">
-            {EAT_SECTION.title}
+            Eat.
           </h1>
         </motion.div>
         
         <h2 className="text-lg font-medium text-gray-800 sm:text-xl md:text-2xl font-heading dark:text-gray-200">
-          {EAT_SECTION.subtitle}
+          Breakfast, Lunch and Dinner
         </h2>
         <p className="text-sm text-gray-600 sm:text-base md:text-lg font-body dark:text-gray-300">
-          {EAT_SECTION.description}
+          Delight in fresh breakfasts, hearty lunches, and sumptuous dinners. Experience authentic Indian flavors in every bite.
         </p>
         <div className="pt-2">
           <motion.button
-            className="px-6 py-2 text-black dark:text-white dark:border-white transition border border-black hover:bg-red-800 hover:text-white font-body dark:hover:bg-[#86C232] dark:hover:text-black"
+            className="px-6 py-2 text-black dark:text-white dark:border-white transition border border-black hover:bg-[#7a5f55] hover:text-white font-body dark:hover:bg-[#86C232] dark:hover:text-black"
             onClick={handleClick}
             whileHover={{scale:1.1}}
             whileTap={{scale:0.8}}
             animate={{duration:0.2}}
           >
-            {EAT_SECTION.buttonText}
+            See More
           </motion.button>
         </div>
       </div>

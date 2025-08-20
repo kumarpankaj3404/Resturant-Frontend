@@ -25,7 +25,7 @@ const SelectField = ({
         required={required}
         aria-required={required}
         aria-describedby={ariaDescribedby}
-        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-800 focus:dark:ring-[#86C232]"
+        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7a5f55] focus:dark:ring-[#86C232]"
       >
         <option value="">{placeholder}</option>
         {options.map(({ value, label }) => (

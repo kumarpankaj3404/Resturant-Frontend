@@ -1,6 +1,6 @@
 
 import { useNavigate } from "react-router-dom";
-import { WELCOME_SECTION, IMAGES } from "../../utils/constants";
+import { IMAGES } from "../../utils/constants";
 import {motion} from "motion/react"
 
 const Welcome = () => {
@@ -12,7 +12,7 @@ const Welcome = () => {
 
   return (
     
-    <section className="flex flex-col-reverse items-center w-full min-h-screen px-4 py-10 bg-red-800 sm:px-6 md:flex-row md:px-10 lg:px-24 dark:bg-gray-900">
+    <section className="flex flex-col-reverse items-center w-full min-h-screen px-4 py-10 bg-[#7a5f55] sm:px-6 md:flex-row md:px-10 lg:px-24 dark:bg-gray-900 space-x-10">
 
       {/* Left Image */}
       
@@ -47,11 +47,15 @@ const Welcome = () => {
         }
         }}
       >
-          <p className="text-xs font-bold tracking-widest uppercase sm:text-sm font-heading">{WELCOME_SECTION.type}</p>
+          <p className="text-xs font-bold tracking-widest uppercase sm:text-sm font-heading">
+            That Indian Restaurant
+          </p>
           <h1 className="text-2xl font-bold leading-snug sm:text-3xl md:text-4xl font-heading">
-            {WELCOME_SECTION.title}
+            Welcome
           </h1>
-          <p className="text-sm text-gray-200 sm:text-base md:text-lg font-body">{WELCOME_SECTION.description}</p>
+          <p className="text-sm text-gray-200 sm:text-base md:text-lg font-body">
+            Step into a world of authentic Indian flavors, where every dish is crafted with care and passion. Our chefs use the finest ingredients to create traditional recipes that celebrate India’s rich culinary heritage, offering you a dining experience full of warmth, aroma, and unforgettable taste.
+          </p>
           <div className="flex justify-center md:justify-start">
 
           <motion.button
@@ -74,7 +78,7 @@ const Welcome = () => {
               aria-label="Learn more about us"
               className="px-5 py-2 transition  duration-300 border border-white font-body hover:bg-white dark:hover:bg-[#86C232] hover:text-black "
             >
-              {WELCOME_SECTION.buttonText}
+             Our Story
             </button>
 
           </motion.button>

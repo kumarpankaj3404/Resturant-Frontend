@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { DRINK_SECTION, IMAGES } from '../../utils/constants';
+import { IMAGES } from '../../utils/constants';
 import {animate, motion} from "motion/react";
 
 const Drink = () => {
@@ -25,7 +25,7 @@ const Drink = () => {
       </div>
 
       {/* Right Content */}
-      <div className="flex flex-col justify-center w-full px-4 py-8 space-y-4 text-left sm:px-6 md:px-12 lg:px-24 bg-white md:w-1/2 h-[50vh] dark:bg-[#6B6E70]">
+      <div className="flex flex-col justify-center w-full px-4 py-8 space-y-4 text-left sm:px-6 md:px-12 lg:px-24 bg-[#d8c6ba] md:w-1/2 h-[50vh] dark:bg-[#6B6E70]">
       <motion.div 
           initial={{ opacity: 0, x: +10 }}
           whileInView={
@@ -41,21 +41,21 @@ const Drink = () => {
           viewport={{once:true}}
         >
           <h1 className="text-2xl font-bold text-black dark:text-white sm:text-3xl md:text-4xl font-heading">
-            {DRINK_SECTION.title}
+            Drink.
           </h1>
         </motion.div>
         <h2 className="text-lg font-medium text-gray-800 dark:text-gray-100 sm:text-xl md:text-2xl font-heading">
-          {DRINK_SECTION.subtitle}
+          The Finest Drinks
         </h2>
         <p className="text-sm text-gray-600 dark:text-gray-300 sm:text-base md:text-lg font-body">
-          {DRINK_SECTION.description}
+          Refreshing beverages and crafted drinks, perfect with every meal. From aromatic teas to signature cocktails, sip the finest flavors.
         </p>
         <div className="pt-2">
           <button
-            className="px-6 py-2 text-black transition border border-black hover:bg-red-800  dark:text-white dark:border-white hover:text-white font-body dark:hover:bg-[#86C232] dark:hover:text-black"
+            className="px-6 py-2 text-black transition border border-black hover:bg-[#7a5f55]  dark:text-white dark:border-white hover:text-white font-body dark:hover:bg-[#86C232] dark:hover:text-black"
             onClick={handleClick}
           >
-            {DRINK_SECTION.buttonText}
+            See More
           </button>
         </div>
       </div>

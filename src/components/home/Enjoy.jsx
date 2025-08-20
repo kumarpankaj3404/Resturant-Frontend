@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ENJOY_SECTION, IMAGES } from '../../utils/constants';
+import {  IMAGES } from '../../utils/constants';
 import {animate, motion} from "motion/react";
 
 const Enjoy = () => {
@@ -34,22 +34,22 @@ const Enjoy = () => {
                   viewport={{once:true}}
         >
           <h1 className="text-2xl font-bold text-black dark:text-white sm:text-3xl md:text-4xl font-heading">
-            {ENJOY_SECTION.title}
+            Enjoy.
           </h1>
         </motion.div>
         
         <h2 className="text-lg font-medium text-gray-800 dark:text-gray-100 sm:text-xl md:text-2xl font-heading">
-          {ENJOY_SECTION.subtitle}
+          Make Yourself at Home
         </h2>
         <p className="text-sm text-gray-600 dark:text-gray-300 sm:text-base md:text-lg font-body">
-          {ENJOY_SECTION.description}
+          Relax, unwind, and savor every moment. Experience warm hospitality and a cozy ambiance.
         </p>
         <div className="pt-2">
           <button
             onClick={handleClick}
-            className="px-6 py-2 text-black dark:text-white transition border border-black dark:border-white hover:bg-red-800 hover:text-white font-body dark:hover:bg-[#86C232] dark:hover:text-black"
+            className="px-6 py-2 text-black dark:text-white transition border border-black dark:border-white hover:bg-[#7a5f55] hover:text-white font-body dark:hover:bg-[#86C232] dark:hover:text-black"
           >
-            {ENJOY_SECTION.buttonText}
+            Visit Us
           </button>
         </div>
       </div>

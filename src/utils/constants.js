@@ -1,39 +1,18 @@
-
-
 // Restaurant Information
 export const RESTAURANT_NAME = "THAT INDIAN RESTAURANT";
 export const RESTAURANT_TYPE = "Indian Restaurant";
 export const RESTAURANT_SLOGAN = "Authentic Indian Cuisine";
 
 
-export const WELCOME_SECTION = {
-  type: "Indian Restaurant",
-  title: "WELCOME",
-  description: "Experience the authentic flavors of all the states in the heart of India. Our passionate chefs bring traditional recipes to life with the finest ingredients, creating unforgettable dining experiences that transport you straight to the streets of Punjab and the hills of Himachal.",
-  buttonText: "Our Story"
-};
-
-export const EAT_SECTION = {
-  title: "Eat.",
-  subtitle: "Breakfast, Lunch and Dinner",
-  description: "Start your day with our freshly baked pastries and beverages, or enjoy a leisurely lunch featuring our signature panner dishes and wood-fired chicken. Every bite tells a story of tradition and passion.",
-  buttonText: "See More"
-};
-
-export const DRINK_SECTION = {
-  title: "Drink.",
-  subtitle: "The Finest Drinks",
-  description: "Savor carefully selected wines from renowned vineyards, or enjoy our expertly crafted espresso and cappuccino. Our sommelier ensures the perfect pairing for every dish.",
-  buttonText: "See More"
-};
-
-export const ENJOY_SECTION = {
-  title: "Enjoy.",
-  subtitle: "Make Yourself at Home",
-  description: "Relax in our warm, inviting atmosphere where every detail is designed to make you feel at home. From our rustic decor to our attentive service, we create the perfect setting for memorable moments.",
-  buttonText: "Visit Us"
-};
-
+// Navigation Links
+export const NAV_LINKS = [
+  { text: "HOME", path: "/" },
+  { text: "MENU", path: "/menu" },
+  { text: "RESERVATION", path: "/reservation" },
+  { text: "GALLERY", path: "/gallery" },
+  { text: "ABOUT", path: "/about" },
+  { text: "REVIEW", path: "/review" }
+];
 
 // Contact Information
 export const CONTACT_INFO = {
@@ -49,36 +28,11 @@ export const CONTACT_INFO = {
 };
 
 
-// Navigation Links
-export const NAV_LINKS = [
-  { text: "HOME", path: "/" },
-  { text: "MENU", path: "/menu" },
-  { text: "RESERVATION", path: "/reservation" },
-  { text: "GALLERY", path: "/gallery" },
-  { text: "ABOUT", path: "/about" },
-  { text: "REVIEW", path: "/review" }
-];
-
-// Sections
-export const HERO_SECTION = {
-  title: "Welcome to",
-  buttonText: "EXPLORE MENU"
-};
-
-
 export const ADDRESS_SECTION = {
-  title: "Drop By for a Bite.",
   address: CONTACT_INFO.address,
   openingHours: CONTACT_INFO.openingHours
 };
 
-
-export const FOOTER_SECTION = {
-  contactTitle: "CONTACT US",
-  openingTitle:"OPENING HOURS",
-  galleryTitle: "GALLERY",
-  copyright: "© 2025 THE PANKY PUNKY PLACE. All Rights Reserved."
-};
 
 // Social Media Links
 export const SOCIAL_LINKS = {
@@ -95,6 +49,13 @@ export const IMAGES = {
   drinkImage: "https://i.pinimg.com/1200x/dd/d5/fa/ddd5fa8ce7d57bcc36a94e5f86947888.jpg",
   enjoyImage: "https://i.pinimg.com/1200x/17/df/b9/17dfb91e63cf334ceefc46c12439f5d4.jpg",
   reservationImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+  horizontalRowImages: [
+    "https://i.pinimg.com/736x/35/54/bd/3554bda2d9087101d5aae39c2c293f89.jpg",
+    "https://i.pinimg.com/1200x/35/95/2d/35952d12f15b3094a6505391a0bfdf7b.jpg",
+    "https://i.pinimg.com/736x/6d/f4/58/6df458846c4154a7a6d0f2340410bc54.jpg",
+    "https://i.pinimg.com/736x/49/0b/1b/490b1bdc071d07b29ecfb983f4261ee1.jpg",
+    "https://i.pinimg.com/736x/40/5f/e1/405fe1304ab85050c02e3633c0f3b84e.jpg",
+  ],
   galleryImages: [
     "https://i.pinimg.com/1200x/94/ce/21/94ce21666dab75ec4bceb9c953073aca.jpg",
     "https://i.pinimg.com/736x/49/01/75/490175145c9bda8584e2a5115292bb3c.jpg",

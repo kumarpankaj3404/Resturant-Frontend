@@ -9,7 +9,7 @@ const Address = () => {
         {/* Centered Heading */}
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold text-black md:text-4xl dark:text-yellow-300 ">
-            {ADDRESS_SECTION.title}
+           Drop By for a Bite.
           </h2>
         </div>
 
@@ -20,7 +20,7 @@ const Address = () => {
           <div className="flex-1 p-8 text-center">
             <div className="flex justify-center mb-6">
               <div className="flex items-center justify-center w-12 h-12 bg-[#F6ECE3] dark:bg-[#222629] rounded-full">
-                <MapPinIcon className="w-6 h-6 text-red-800 dark:text-[#86C232]" />
+                <MapPinIcon className="w-6 h-6 text-[#7a5f55] dark:text-[#86C232]" />
               </div>
             </div>
             <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-yellow-400">Address</h3>
@@ -34,7 +34,7 @@ const Address = () => {
           <div className="flex-1 p-8 text-center">
             <div className="flex justify-center mb-6">
               <div className="flex items-center justify-center w-12 h-12 bg-[#F6ECE3] dark:bg-[#222629] rounded-full">
-                <ClockIcon className="w-6 h-6 text-red-800 dark:text-[#86C232]" />
+                <ClockIcon className="w-6 h-6 text-[#7a5f55] dark:text-[#86C232]" />
               </div>
             </div>
             <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-yellow-400">Opening Hours</h3>

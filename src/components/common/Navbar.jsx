@@ -42,12 +42,12 @@ const Navbar = () => {
         showNavbar ? 'translate-y-0' : '-translate-y-full'
       } bg-white/70 dark:bg-black/70`}
     >
-      <div className="absolute top-0 left-0 w-full h-1 bg-red-800 dark:bg-[#86C232]"></div>
+      {/* <div className="absolute top-0 left-0 w-full h-1 bg-[#7a5f55] dark:bg-[#86C232]"></div> */}
 
       <div className="relative flex items-center justify-between mx-auto max-w-7xl">
         <div className="text-xl font-bold ">
           <div
-           className="px-4 py-2 cursor-pointer text-red-800 dark:text-[#86C232] bg-white border-2 border-gray-500 rounded-full dark:bg-black font-heading"
+           className="px-4 py-2 cursor-pointer text-[#7a5f55] dark:text-[#86C232] bg-white border-2 border-gray-500 rounded-full dark:bg-black font-body"
             onClick={navigateHome}
             
           >
@@ -55,12 +55,12 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="items-center hidden space-x-6 lg:flex">
+        <div className="items-center hidden space-x-6 lg:flex font-body" >
           {NAV_LINKS.map((link) => (
             <Link
               key={link.text}
               to={link.path}
-              className="text-sm font-medium text-black dark:text-white  transition-all duration-300  hover:text-red-800 dark:hover:text-[#86C232]"
+              className="text-sm font-bold text-black dark:text-white  transition-all duration-300  hover:text-[#7a5f55] dark:hover:text-[#86C232]"
             >
               {link.text}
             </Link>
@@ -70,7 +70,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-4 lg:space-x-6 ">
           <button
             onClick={() => dispatch(toggleTheme())}
-            className="p-1 text-black dark:text-white hover:text-red-800 dark:hover:text-[#86C232]"
+            className="p-1 text-black dark:text-white hover:text-[#7a5f55] dark:hover:text-[#86C232]"
             aria-label="Toggle theme"
             title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           >
@@ -79,7 +79,7 @@ const Navbar = () => {
 
           <button
             onClick={() => navigate('/cart')}
-            className="p-1 text-black dark:text-white hover:text-red-800 dark:hover:text-[#86C232]"
+            className="p-1 text-black dark:text-white hover:text-[#7a5f55] dark:hover:text-[#86C232]"
             aria-label="Cart"
           >
             <ShoppingCartIcon className="w-6 h-6" />
@@ -87,7 +87,7 @@ const Navbar = () => {
 
           <button
             onClick={() => navigate('/profile')}
-            className="p-1 text-black dark:text-white hover:text-red-800 dark:hover:text-[#86C232]"
+            className="p-1 text-black dark:text-white hover:text-[#7a5f55] dark:hover:text-[#86C232]"
             aria-label="Profile"
           >
             <UserCircleIcon className="w-6 h-6" />
@@ -95,7 +95,7 @@ const Navbar = () => {
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="p-1 lg:hidden text-black dark:text-white hover:text-red-800 dark:hover:text-[#86C232]"
+            className="p-1 lg:hidden text-black dark:text-white hover:text-[#7a5f55] dark:hover:text-[#86C232]"
             aria-label="Menu"
           >
             {menuOpen ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
@@ -110,7 +110,7 @@ const Navbar = () => {
               key={link.text}
               to={link.path}
               onClick={() => setMenuOpen(false)}
-              className="block px-4 py-3 text-sm text-gray-700 dark:text-gray-200 hover:bg-red-800 hover:text-white dark:hover:bg-[#86C232]"
+              className="block px-4 py-3 text-sm text-gray-700 dark:text-gray-200 hover:bg-[#7a5f55] hover:text-white dark:hover:bg-[#86C232]"
             >
               {link.text}
             </Link>
