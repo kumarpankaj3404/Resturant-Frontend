@@ -64,7 +64,7 @@ const HeroSection = () => {
           <motion.div
             whileHover={{scale:1.2}}
             whileTap={{scale:0.8}}
-            className="px-2  text-sm font-light font-body rounded-full bg-[#48352f] py-3 border-2 sm:px-3 sm:py-2  dark:bg-[#86C232]  "
+            className="px-2  text-sm font-light font-body rounded-full bg-[#7a5f55] py-3 border-2 sm:px-3 sm:py-2  dark:bg-[#86C232]  "
 
           >
             LOOK MENU

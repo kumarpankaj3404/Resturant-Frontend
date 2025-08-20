@@ -155,7 +155,7 @@ const ReservationSection = () => {
                   type="submit"
                   variant="primary"
                   size="large"
-                  className="w-full  hover:text-yellow-100 hover:bg-[#7a5f55]  font-body dark:bg-[#82c91e]  dark:text-black "
+                  className="w-full  hover:text-gray-100 hover:bg-[#7f6257]  font-body dark:bg-[#82c91e]  dark:text-black "
                 >
                   {RESERVATION_SECTION.buttonText}
                 </Button>
