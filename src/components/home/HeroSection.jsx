@@ -23,7 +23,7 @@ const HeroSection = () => {
       <div className="z-10 max-w-4xl text-4xl font-bold text-center text-white text-outline">
         <motion.h1
           tabIndex={0}
-          className="mb-8 tracking-widest uppercase courggete sm:text-xl md:text-5xl dark:text-white-shadow font-body"
+          className="mb-8 tracking-widest uppercase  sm:text-xl md:text-5xl dark:text-white-shadow font-serif"
           initial={{y: -150,opacity:0}}
           animate={{
             y:0,
@@ -38,7 +38,7 @@ const HeroSection = () => {
 
         <motion.h2
           tabIndex={0}
-          className="text-3xl font-bold leading-tight mb-14 sm:text-4xl md:text-6xl font-heading dark:text-white-shadow"
+          className="text-3xl font-bold leading-tight mb-14 sm:text-4xl md:text-6xl font-heading dark:text-white-shadow font-cursive"
           initial={{y: +150,opacity:0}}
           animate={{
             y:0,
