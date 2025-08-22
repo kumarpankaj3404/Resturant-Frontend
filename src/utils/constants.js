@@ -9,7 +9,7 @@ export const RESTAURANT_SLOGAN = "Authentic Indian Cuisine";
 // Navigation Links
 export const NAV_LINKS = [
   { text: "HOME", path: "/" },
-  { text: "MENU", path: "/menu" },
+  { text: "MENU", path: "/menu/starters-snacks" },
   { text: "RESERVATION", path: "/reservation" },
   { text: "GALLERY", path: "/gallery" },
   { text: "ABOUT", path: "/about" },
