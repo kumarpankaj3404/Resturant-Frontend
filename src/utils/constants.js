@@ -1,3 +1,5 @@
+import VerticalImageColumn from "../components/reservation/VerticalImageCol";
+
 // Restaurant Information
 export const RESTAURANT_NAME = "THAT INDIAN RESTAURANT";
 export const RESTAURANT_TYPE = "Indian Restaurant";
@@ -49,6 +51,7 @@ export const IMAGES = {
   drinkImage: "https://i.pinimg.com/1200x/dd/d5/fa/ddd5fa8ce7d57bcc36a94e5f86947888.jpg",
   enjoyImage: "https://i.pinimg.com/1200x/17/df/b9/17dfb91e63cf334ceefc46c12439f5d4.jpg",
   reservationImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+  reserve: "https://i.pinimg.com/1200x/b9/e9/c5/b9e9c54f52764e788b68d73a207afd16.jpg",
   horizontalRowImages: [
     "https://i.pinimg.com/736x/35/54/bd/3554bda2d9087101d5aae39c2c293f89.jpg",
     "https://i.pinimg.com/1200x/35/95/2d/35952d12f15b3094a6505391a0bfdf7b.jpg",
@@ -56,6 +59,11 @@ export const IMAGES = {
     "https://i.pinimg.com/736x/49/0b/1b/490b1bdc071d07b29ecfb983f4261ee1.jpg",
     "https://i.pinimg.com/736x/40/5f/e1/405fe1304ab85050c02e3633c0f3b84e.jpg",
   ],
+  VerticalImages:[
+    "https://i.pinimg.com/736x/6d/f4/58/6df458846c4154a7a6d0f2340410bc54.jpg",
+    "https://i.pinimg.com/736x/49/0b/1b/490b1bdc071d07b29ecfb983f4261ee1.jpg",
+    "https://i.pinimg.com/736x/40/5f/e1/405fe1304ab85050c02e3633c0f3b84e.jpg",
+   ] ,
   galleryImages: [
     "https://i.pinimg.com/1200x/94/ce/21/94ce21666dab75ec4bceb9c953073aca.jpg",
     "https://i.pinimg.com/736x/49/01/75/490175145c9bda8584e2a5115292bb3c.jpg",
