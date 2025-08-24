@@ -1,26 +1,35 @@
-import {createSlice ,nanoid} from '@reduxjs/toolkit';
+// cartSlice.js
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState={
-    items: [],
-};
-
-export const cartSlice=createSlice({
-    name:'cart',
-    initialState,
-    reducers: {
-        addToCart: (state, action) =>{
-            const cart={
-                id: nanoid(),
-                item: action.payload
-            }
-            state.items.push(cart)
-        },
-        removeFromCart: (state,action) => {
-            state.items=state.items.filter((cart)=>cart.id !== action.payload)
-        },
+const cartSlice = createSlice({
+  name: "cart",
+  initialState: {
+    items: {} // { [itemId]: { ...itemData, qty: number } }
+  },
+  reducers: {
+    addItem: (state, action) => {
+      const item = action.payload;
+      if (!state.items[item._id]) {
+        state.items[item._id] = { ...item, qty: 1 };
+      }
     },
+    incrementItem: (state, action) => {
+      const id = action.payload;
+      if (state.items[id]) {
+        state.items[id].qty += 1;
+      }
+    },
+    decrementItem: (state, action) => {
+      const id = action.payload;
+      if (state.items[id]) {
+        state.items[id].qty -= 1;
+        if (state.items[id].qty <= 0) {
+          delete state.items[id];
+        }
+      }
+    },
+  },
 });
 
-export const {addToCart, removeFromCart} = cartSlice.actions
-
-export default cartSlice.reducer
+export const { addItem, incrementItem, decrementItem } = cartSlice.actions;
+export default cartSlice.reducer;
