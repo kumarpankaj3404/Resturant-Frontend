@@ -12,6 +12,6 @@ export default function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/menu/:categories" element={<Menu />} />
       </Routes>
-    
+  )
 
 }
