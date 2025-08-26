@@ -1,7 +1,7 @@
 import VerticalImageColumn from "../components/reservation/VerticalImageCol";
 
 // Restaurant Information
-export const RESTAURANT_NAME = "THAT INDIAN RESTAURANT";
+export const RESTAURANT_NAME = "BOND AND BITES";
 export const RESTAURANT_TYPE = "Indian Restaurant";
 export const RESTAURANT_SLOGAN = "Authentic Indian Cuisine";
 
@@ -20,7 +20,7 @@ export const NAV_LINKS = [
 export const CONTACT_INFO = {
   address: "8th floor, 379 Hyd St, INDIA, IND 10018",
   phone: "(+91) 96 716 6879",
-  email: "contact@thepankypunkyplace.com",
+  email: "contact@bondandbites.com",
   openingHours: {
     weekdays: "11:00 AM - 10:00 PM",
     saturday: "10:00 AM - 11:00 PM",

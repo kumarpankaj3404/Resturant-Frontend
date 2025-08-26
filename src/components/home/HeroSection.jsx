@@ -12,7 +12,7 @@ const HeroSection = () => {
   return (
     <section
       aria-label="Hero Section"
-      className="relative flex items-center justify-center h-screen px-4 bg-fixed bg-center bg-cover sm:px-6 md:px-0"
+      className="relative flex items-center justify-center h-screen px-4 bg-fixed bg-center bg-cover sm:px-6 md:px-0 "
       style={{
         backgroundImage: `linear-gradient(
           rgba(0, 0, 0, 0.35),
@@ -20,10 +20,10 @@ const HeroSection = () => {
         ), url(${IMAGES.heroBackground})`,
       }}
     >
-      <div className="z-10 max-w-4xl text-4xl font-bold text-center text-white text-outline">
+      <div className="z-10 font-bold text-center text-white max-w-10xl text-10xl text-outline">
         <motion.h1
           tabIndex={0}
-          className="mb-8 tracking-widest uppercase  sm:text-xl md:text-5xl dark:text-white-shadow font-serif"
+          className="mb-8 tracking-widest uppercase font-heading sm:text-xl md:text-5xl dark:text-white-shadow"
           initial={{y: -150,opacity:0}}
           animate={{
             y:0,
@@ -38,7 +38,7 @@ const HeroSection = () => {
 
         <motion.h2
           tabIndex={0}
-          className="text-3xl font-bold leading-tight mb-14 sm:text-4xl md:text-6xl font-heading dark:text-white-shadow font-cursive"
+          className="text-3xl font-bold leading-tight mb-14 sm:text-4xl md:text-6xl font-heading dark:text-white-shadow"
           initial={{y: +150,opacity:0}}
           animate={{
             y:0,

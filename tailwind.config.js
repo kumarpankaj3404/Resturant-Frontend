@@ -9,7 +9,8 @@ export default {
     extend: {
       fontFamily: {
       //  heading: ['"Playfair Display"', 'serif'], 
-       heading: ['"Bricolage Grotesque"', 'sans-serif'],
+      //  heading: ['"Bricolage Grotesque"', 'sans-serif'],
+        heading: ["'Exo 2'", "sans-serif"],
         body: ['"Quicksand"', 'sans-serif'], 
       },
     },
