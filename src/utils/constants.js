@@ -52,7 +52,7 @@ export const IMAGES = {
   enjoyImage: "https://i.pinimg.com/1200x/17/df/b9/17dfb91e63cf334ceefc46c12439f5d4.jpg",
   reservationImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
   
-  reserve: "https://i.pinimg.com/736x/5d/bf/67/5dbf67f6ba0604595ffd24cfd015b0ce.jpg",
+  reserve: "https://i.pinimg.com/736x/a9/f8/1f/a9f81f7fa9b34dedf0da3e7119371e21.jpg",
   horizontalRowImages: [
     "https://i.pinimg.com/736x/35/54/bd/3554bda2d9087101d5aae39c2c293f89.jpg",
     "https://i.pinimg.com/1200x/35/95/2d/35952d12f15b3094a6505391a0bfdf7b.jpg",
