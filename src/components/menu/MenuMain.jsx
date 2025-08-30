@@ -240,14 +240,14 @@ const MenuMain = (props) => {
                 <p>₹{item.Price}</p>
                 <div className="w-24">
                   {cartItems[item._id] ? (
-                    <div className="flex items-center justify-between">
-                      <button onClick={() => dispatch(decrementItem(item._id))}>
+                    <div className="w-24 flex items-center justify-between ">
+                      <button onClick={() => dispatch(decrementItem(item._id))} className="bg-green-500 w-6 rounded-full hover:bg-green-600 transition-colors duration-300 text-center">
                         -
                       </button>
-                      <div>
+                      <div className="w-12  text-center">
                         {cartItems[item._id].qty}
                       </div>
-                      <button onClick={() => dispatch(incrementItem(item._id))}>
+                      <button onClick={() => dispatch(incrementItem(item._id))} className="bg-green-500 w-6 rounded-full hover:bg-green-600 transition-colors duration-300 text-center">
                         +
                       </button>
                     </div>
