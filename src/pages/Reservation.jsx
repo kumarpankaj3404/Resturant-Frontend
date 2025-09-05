@@ -65,12 +65,12 @@ const ReservationSection = () => {
       
     >
       
-      {/* Overlay for darker background */}
+      
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="w-full h-20 bg-[#48352f]"></div>
       <div
         aria-label="Reservation Section"
-      className="relative flex flex-col w-full min-h-screen bg-fixed bg-center bg-cover"
+      className="relative flex flex-col w-full min-h-screen bg-fixed bg-center bg-contain"
       style={{
         backgroundImage: `linear-gradient(
           rgba(0, 0, 0, 0.35),
@@ -78,10 +78,10 @@ const ReservationSection = () => {
         ), url(${IMAGES.reserve})`,
       }}>
      
-      {/* Content wrapper */}
+    
       <div className="relative flex items-center justify-center flex-1 w-full">
         
-        {/* Reservation form */}
+        
         <div className="flex flex-col justify-center items-center flex-1 max-w-3xl h-auto bg-white/70 dark:bg-[#6d6e6f]/70 backdrop-blur-md overflow-y-auto p-10 rounded-2xl shadow-2xl m-8">
           <div className="px-4 mb-6 text-center font-heading sm:px-6 lg:px-8">
             <h2 className="text-4xl font-bold text-[#583f36] dark:text-[#86C232]">

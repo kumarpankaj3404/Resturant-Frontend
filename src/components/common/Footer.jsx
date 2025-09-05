@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="grid sm:grid-cols-3 gap-x-12 gap-y-6">
           
           <div>
-            <h1 className="font-serif text-4xl">β𝓸ⓝ𝓭 𝐀ⓝ𝓭 βᎥＴ𝑒𝓼𝒮</h1>
+            <h1 className="font-serif text-4xl ">β𝓸ⓝ𝓭 𝐀ⓝ𝓭 βᎥT𝑒𝒮</h1>
             <p className='pt-3 pb-5 space-y-1 text-gray-300 text-md font-body'>“Crafting memories together, one bond, one bite at a time.”</p>
             <h3 className="mb-4 text-xl font-bold font-heading">CONTACT US</h3>
             <div className="max-w-md space-y-4 text-md">
