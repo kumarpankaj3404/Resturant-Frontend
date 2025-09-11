@@ -6,18 +6,22 @@ import Enjoy from "../components/home/Enjoy";
 import Address from "../components/home/Address";
 import HorizontalImageRow from "../components/home/HorizontalImageRow";
 import ReservationSection from "../components/reservation/ReservationSection";
+import { motion } from "motion/react";
 const Home= () => {
     return ( 
-        <div >
+        <motion.div 
+        initial={{opacity:0}}
+        animate={{opacity:1}}
+        transition={{duration:1}}
+        >
         <HeroSection/>
-        <Welcome/>
         <Eat/>
         <Drink/>
         <Enjoy/>
         <Address/>
         <HorizontalImageRow/>
         <ReservationSection/>
-        </div>
+        </motion.div>
      );
 }
  

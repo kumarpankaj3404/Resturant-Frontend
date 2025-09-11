@@ -32,7 +32,7 @@ const responsiveOptions = [
   }
 
   return (
-    <section >
+    <section className="mb-12">
 
       <div className="mt-28 flex items-center justify-between w-screen  "  >
         <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} 
@@ -53,7 +53,7 @@ const responsiveOptions = [
             }}
           >
           <p className="text-xs font-bold tracking-widest uppercase sm:text-sm font-heading">
-            That Indian Restaurant
+            Bond&Bites
           </p>
           <h1 className="text-2xl font-bold leading-snug sm:text-3xl md:text-4xl font-heading">
             Welcome
@@ -76,59 +76,8 @@ const responsiveOptions = [
         </motion.div>
         </div>
       </div>
-      <div className="z-10 font-bold text-center text-white max-w-10xl text-10xl text-outline">
-        <motion.h1
-          tabIndex={0}
-          className="mb-8 tracking-widest uppercase font-heading sm:text-xl md:text-5xl dark:text-white-shadow"
-          initial={{y: -150,opacity:0}}
-          animate={{
-            y:0,
-            opacity:1,
-          }}
-          transition={{
-            duration:1
-          }}
-        >
-          Welcome to
-        </motion.h1>
-
-        <motion.h2
-          tabIndex={0}
-          className="text-3xl font-bold leading-tight mb-14 sm:text-4xl md:text-6xl font-heading dark:text-white-shadow"
-          initial={{y: +150,opacity:0}}
-          animate={{
-            y:0,
-            opacity:1,
-          }}
-          transition={{
-            delay:1,
-            duration:0.75
-          }}
-        >
-          {RESTAURANT_NAME}
-        </motion.h2>
-
-        <motion.button
-          onClick={handleMenuClick}
-          initial={{opacity:0,scale:0}}
-          animate={{opacity:1,scale:1}}
-          transition={{
-            delay:1.8,
-            duration:0.5
-          }}
-        >
-          <motion.div
-            whileHover={{scale:1.2}}
-            whileTap={{scale:0.8}}
-            className="px-2  text-sm font-light font-body rounded-full bg-[#7a5f55] py-3 border-2 sm:px-3 sm:py-2  dark:bg-[#86C232]  "
-
-          >
-            LOOK MENU
-          </motion.div>
-        </motion.button>
-</div>
     
-    </section>
+    </section >
   );
 };
 
