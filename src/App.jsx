@@ -6,6 +6,7 @@ import AppRoutes from './routes/AppRoutes';
 import Footer from './components/common/Footer';
 import { motion } from "framer-motion"; // Corrected import
 import { RESTAURANT_NAME } from "./utils/constants";
+import 'primeicons/primeicons.css';
 
 function App() {
   // Initialize state based on whether 'hasVisited' is in sessionStorage

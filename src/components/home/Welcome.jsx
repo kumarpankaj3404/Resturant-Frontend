@@ -12,12 +12,12 @@ const Welcome = () => {
 
   return (
     
-    <section className="flex flex-col-reverse items-center w-full min-h-screen px-4 py-10 space-x-10 bg-[#f7e7e2] sm:px-6 md:flex-row md:px-10 lg:px-24 dark:bg-gray-900">
+    <section className="flex flex-col-reverse items-center w-full min-h-screen px-4 py-10 space-x-10 dark:bg-black bg-[#f7e7e2] sm:px-6 md:flex-row md:px-10 lg:px-24  ">
 
       {/* Left Image */}
       
       <motion.div
-        className="w-full mt-10 md:mt-0 md:w-1/2 md:mr-10"
+        className="w-full mt-10 md:mt-0 md:w-1/2 md:mr-10 dark:bg-black"
         initial={{scale:0}}
         
         whileInView={{
@@ -29,7 +29,7 @@ const Welcome = () => {
           src={IMAGES.aboutImage}
           alt="About Section"
           loading="lazy"
-          className="w-full h-auto max-h-[400px] sm:max-h-[450px] md:max-h-[500px] object-cover rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105"
+          className="w-full  h-auto max-h-[400px] sm:max-h-[450px] md:max-h-[500px] object-cover rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105"
         />
       </motion.div>
 

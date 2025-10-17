@@ -9,7 +9,6 @@ const Gallery = () => {
 
   return (
     <>
-    <div className="w-full h-20 bg-[#48352f]"></div>
       <GalleryNav onPage={category} />
       <GalleryMain category={category} />
     </>

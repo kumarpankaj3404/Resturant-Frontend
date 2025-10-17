@@ -13,6 +13,7 @@ const Home= () => {
         initial={{opacity:0}}
         animate={{opacity:1}}
         transition={{duration:1}}
+        className="dark:bg-gray-900"
         >
         <HeroSection/>
         <Eat/>

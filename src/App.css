@@ -1,3 +1,5 @@
+
+
 .text-outline {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
@@ -8,3 +10,13 @@
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.card {
+    background: var(--surface-card);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.font-desc{
+    font-family: 'Arial', sans-serif;
+}
