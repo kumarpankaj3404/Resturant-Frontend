@@ -9,8 +9,10 @@ const Cart = () => {
   const arr = Object.values(items);
   console.log(arr);
   let total = 0;
+  let itemsQuantity = 0;
   arr.forEach((item) => {
     total += item.Price * item.qty;
+    itemsQuantity += item.qty;
   });
   const handleAddItems = () => {
     navigate('/menu/starters-snacks');
@@ -18,10 +20,9 @@ const Cart = () => {
 
   return (
     <div className="">
-       <div className="h-20 bg-red-800"></div>
        <div className="lg:m-20 lg: md:m-6 m-4   ">
       <h1 className="text-5xl  font-bold mb-4 text-center">Your <span className="text-cyan-600">Cart</span></h1>
-      <p className="font-bold text-gray-500 text-sm">You have <span className="text-cyan-600">{arr.length} items</span>  in your order</p>
+      <p className="font-bold text-gray-500 text-sm">You have <span className="text-cyan-600">{itemsQuantity} items</span>  in your order</p>
       <div className="border-2 border-gray-200 m-4 p-4">
         <div className="flex justify-between items-center mt-2 font-bold text-center border-b-2 border-gray-200 pb-2">
           <h1 className="w-72">NAME</h1>
@@ -36,7 +37,7 @@ const Cart = () => {
               <img src={item.Thumbnail} alt="" className="w-24 h-24"/>
               <div className="text-left text-sm text-gray-400 font">
                 <h1 className="text-lg text-black font-heading ">{item.Name}</h1>
-                <h1 className="">{item.Category}</h1>
+                <h1 className="" >{item.Category}</h1>
                 <h1>{item.Cuisine_Type}</h1>
               </div>
               

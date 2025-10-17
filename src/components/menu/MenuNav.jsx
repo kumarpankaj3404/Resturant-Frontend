@@ -15,10 +15,6 @@ const MenuNav = (props) => {
 
 return (
     <div>
-        <div></div>
-        <div className='w-full h-20 bg-[#8a5353c4] flex items-center justify-center font-cursive text-2xl font-bold text-white'>
-        </div>
-
         <div className='flex gap-8  justify-center items-center bg-[#f5f5f5] dark:bg-gray-800 py-4 border-b-2 border-gray-300 dark:border-gray-700 mb-4 p-4' >
             {categories.map((category, index) => (
                 <Link

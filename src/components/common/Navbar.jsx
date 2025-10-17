@@ -12,6 +12,8 @@ import { NAV_LINKS } from "../../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme, selectThemeMode } from "../../features/theme/themeSlice";
 import logo from "../../assets/logo.png";
+import { Badge } from 'primereact/badge';
+import { PrimeIcons } from 'primereact/api';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -23,10 +25,17 @@ const Navbar = () => {
   const mode = useSelector(selectThemeMode);
   const isDark = mode === "dark";
 
+  const items = useSelector((state) => state.cart.items);
+  const arr = Object.values(items);
+  let total = 0;
+  arr.forEach((item) => {
+    total += item.qty;
+  });
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setShowNavbar(!(currentScrollY > lastScrollY.current && currentScrollY > 50));
+      setShowNavbar(!(currentScrollY > lastScrollY.current && currentScrollY > 70));
       lastScrollY.current = currentScrollY;
     };
     window.addEventListener("scroll", handleScroll);
@@ -41,10 +50,10 @@ const Navbar = () => {
     <nav
      
 
-      className={`fixed top-0 left-0 w-full z-50 px-4 py-4 shadow-sm backdrop-blur-0 transition-transform duration-300 h-15 font-bold ${
+      className={`top-0 left-0 w-full z-50 px-4 py-4  transition-transform duration-300  font-bold mb-5  ${
 
         showNavbar ? "translate-y-0" : "-translate-y-full"
-      } bg-white/25 dark:bg-black/25`}
+      } bg-black/25 dark:bg-black/75`}
     >
       <div className="relative flex items-center justify-between mx-auto max-w-7xl h-14">
         
@@ -80,7 +89,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-4 lg:space-x-6">
           <button
             onClick={() => dispatch(toggleTheme())}
-            className="p-1 text-black dark:text-white hover:text-[#7a5f55] dark:hover:text-[#86C232]"
+            className="p-1 text-yellow-400 dark:text-white hover:text-[#000000] dark:hover:text-[#86C232]"
             aria-label="Toggle theme"
             title={isDark ? "Switch to light mode" : "Switch to dark mode"}
           >
@@ -89,10 +98,21 @@ const Navbar = () => {
 
           <button
             onClick={() => navigate("/cart")}
-            className="p-1 text-black dark:text-white hover:text-[#7a5f55] dark:hover:text-[#86C232] font-extralight"
+            className="relative inline-flex items-center justify-center p-2 text-black dark:text-white hover:text-[#7a5f55] dark:hover:text-[#86C232]"
             aria-label="Cart"
           >
-            <ShoppingCartIcon className="w-6 h-6" />
+            {/* Shopping cart icon */}
+            <i className="pi pi-shopping-cart text-2xl"></i>
+
+            {/* Badge overlay */}
+            {total > 0 && (
+              <span className="absolute -top-1 -right-1">
+                <Badge
+                  value={total}
+                  className="bg-red-500 text-white text-xs px-2 py-1 rounded-full shadow-md"
+                />
+              </span>
+            )}
           </button>
 
           <button
@@ -100,7 +120,7 @@ const Navbar = () => {
             className="p-1 text-black dark:text-white hover:text-[#7a5f55] dark:hover:text-[#86C232]"
             aria-label="Profile"
           >
-            <UserCircleIcon className="w-6 h-6" />
+            <span className="pi pi-user text-lg"></span>
           </button>
 
           {/* Mobile menu button */}
