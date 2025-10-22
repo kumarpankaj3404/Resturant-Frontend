@@ -1,18 +1,84 @@
 import React from 'react'
+import { aboutUsSlides } from '../utils/constants'
+import { Carousel } from 'primereact/carousel'
+// The required CSS imports are now correctly placed
+import 'primereact/resources/primereact.min.css';
+import 'primereact/resources/themes/lara-light-blue/theme.css'; 
+import 'primeicons/primeicons.css';
+import '../assets/css/about.css';
+
 
 const About = () => {
+    const [interval, setAutoplayInterval] = React.useState(3000); 
+    const responsiveOptions = [
+        {
+            breakpoint: '1400px',
+            numVisible: 1,
+            numScroll: 1
+        },
+        {
+            breakpoint: '1199px',
+            numVisible: 1,
+            numScroll: 1
+        },
+        {
+            breakpoint: '767px',
+            numVisible: 1,
+            numScroll: 1
+        },
+        {
+            breakpoint: '575px',
+            numVisible: 1,
+            numScroll: 1
+        }
+    ];
+
+    const slideTemplate = (items) => {
+        return (
+            <div className='md:flex md:justify-around md:px-4  md:items-center h-full'> 
+                <div className='md:w-96 md:p-4'> {/* Added p-4 for internal padding */}
+                    <h1 className='font-bold text-2xl'>{items.title}</h1>
+                    <p className='font-thin font-desc text-md'>{items.content}</p>
+                </div>
+                <div>
+                    <img 
+                        src={items.image} 
+                        alt={items.alt} 
+                        className='md:h-[60svh] md:w-[40svw] rounded-lg md:object-cover shadow-xl'
+                    />
+                </div>
+            </div>
+        );
+    }
+
+    const carouselProps = {
+        value: aboutUsSlides,
+        itemTemplate: slideTemplate,
+        numVisible: 1,
+        numScroll: 1,
+        autoplayInterval: interval, 
+        circular: true,
+        showIndicators: true, 
+        showNavigators: true,
+        responsiveOptions: responsiveOptions
+    };
+
+    const mouseEnter = () => {
+        setAutoplayInterval(0);
+    }
+    const mouseLeave = () => {
+        setAutoplayInterval(3000);
+    }
+
   return (
-    <div className='flex justify-around m-10 items-center'>
-        <div className='w-96'>
-            <h1 className='font-bold text-2xl'>#MAIN HEADING</h1>
-            <p className='font-thin font-desc text-md'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit deleniti corporis perferendis, beatae eum ab veniam? Laudantium blanditiis, nulla, quibusdam omnis consequatur aperiam earum ipsam dolorem unde itaque quos eius nisi iste praesentium sunt maxime impedit fuga saepe? Nobis corrupti, provident laborum quam ullam inventore itaque vel doloremque eos velit!
-            </p>
-        </div>
-        <div>
-            <img src="https://i.pinimg.com/1200x/94/ce/21/94ce21666dab75ec4bceb9c953073aca.jpg" alt="" className='h-[70svh] w-[40svw]'/>
-        </div>
+    <div 
+        onMouseEnter={mouseEnter} 
+        onMouseLeave={mouseLeave} 
+        className='lg:mx-20 lg:my-14 md:mx-6 md:my-10 sm:mx-4 sm:my-6  ' 
+    >
+        <Carousel {...carouselProps}  />
     </div>
   )
 }
 
-export default About
+export default About;
