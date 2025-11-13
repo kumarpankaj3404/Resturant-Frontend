@@ -1,8 +1,8 @@
-// src/features/auth/authSlice.js
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  status: 'unknown', // 'unknown' | 'authenticated' | 'anonymous'
+  status: 'unknown',
   user: null,
 };
 

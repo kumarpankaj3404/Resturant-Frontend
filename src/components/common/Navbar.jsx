@@ -1,11 +1,10 @@
 
-import React, { useState, useEffect, useRef } from "react";
+
+import React, { useState, useEffect, useRef } from "react"; 
 import { useNavigate, NavLink } from "react-router-dom";
 import {
   Bars3Icon,
   XMarkIcon,
-  ShoppingCartIcon,
-  UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 import { NAV_LINKS } from "../../utils/constants";
@@ -13,14 +12,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme, selectThemeMode } from "../../features/theme/themeSlice";
 import logo from "../../assets/logo.png";
 import { Badge } from 'primereact/badge';
-import { PrimeIcons } from 'primereact/api';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(true);
-  const lastScrollY = useRef(0);
 
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+  
   const dispatch = useDispatch();
   const mode = useSelector(selectThemeMode);
   const isDark = mode === "dark";
@@ -32,32 +31,39 @@ const Navbar = () => {
     total += item.qty;
   });
 
+  
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setShowNavbar(!(currentScrollY > lastScrollY.current && currentScrollY > 70));
+
+      if (currentScrollY <= 0) {
+        setIsVisible(true);
+      } else if (currentScrollY < lastScrollY.current) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
       lastScrollY.current = currentScrollY;
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); 
+  
   const navigateHome = () => {
     navigate("/");
   };
 
   return (
     <nav
-     
-
-      className={`top-0 left-0 w-full z-50 px-4 py-4  transition-transform duration-300  font-bold mb-5  ${
-
-        showNavbar ? "translate-y-0" : "-translate-y-full"
-      } bg-black/25 dark:bg-black/75`}
+      className={`sticky top-0 left-0 z-50 w-full px-4 py-4 font-bold bg-black/25 dark:bg-black/75 backdrop-blur-md transition-transform duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
     >
       <div className="relative flex items-center justify-between mx-auto max-w-7xl h-14">
-        
-        {/* Logo */}
         <div className="flex items-center cursor-pointer" onClick={navigateHome}>
           <img
             src={logo}
@@ -66,7 +72,6 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Desktop Navbar */}
         <div className="items-center hidden space-x-6 lg:flex font-body">
           {NAV_LINKS.map((link) => (
             <NavLink
@@ -85,7 +90,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Icons */}
         <div className="flex items-center space-x-4 lg:space-x-6">
           <button
             onClick={() => dispatch(toggleTheme())}
@@ -101,29 +105,26 @@ const Navbar = () => {
             className="relative inline-flex items-center justify-center p-2 text-black dark:text-white hover:text-[#7a5f55] dark:hover:text-[#86C232]"
             aria-label="Cart"
           >
-            {/* Shopping cart icon */}
-            <i className="pi pi-shopping-cart text-2xl"></i>
-
-            {/* Badge overlay */}
+            <i className="text-2xl pi pi-shopping-cart"></i>
             {total > 0 && (
               <span className="absolute -top-1 -right-1">
                 <Badge
                   value={total}
-                  className="bg-red-500 text-white text-xs px-2 py-1 rounded-full shadow-md"
+                  className="px-2 py-1 text-xs text-white bg-red-500 rounded-full shadow-md"
                 />
               </span>
             )}
           </button>
 
           <button
-            onClick={() => navigate("/profile")}
+            onClick={() => navigate("/profile")} 
             className="p-1 text-black dark:text-white hover:text-[#7a5f55] dark:hover:text-[#86C232]"
             aria-label="Profile"
+            title="Profile"
           >
-            <span className="pi pi-user text-lg"></span>
+            <span className="text-lg pi pi-user"></span>
           </button>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="p-1 lg:hidden text-black dark:text-white hover:text-[#7a5f55] dark:hover:text-[#86C232]"
@@ -134,7 +135,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div className="mt-2 border-t border-gray-200 rounded-md shadow-md dark:border-gray-700 lg:hidden bg-white/70 dark:bg-black/70 backdrop-blur-md">
           {NAV_LINKS.map((link) => (

@@ -53,7 +53,7 @@ const responsiveOptions = [
             }}
           >
           <p className="text-xs font-bold tracking-widest uppercase sm:text-sm font-heading ">
-            Bond&Bites
+            Bond & Bites
           </p>
           <h1 className="text-2xl font-bold leading-snug sm:text-3xl md:text-4xl font-heading">
             Welcome

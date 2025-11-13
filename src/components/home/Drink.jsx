@@ -14,7 +14,7 @@ const Drink = () => {
   return (
     <section className="w-full flex flex-col-reverse md:flex-row min-h-[50vh] md:h-[50vh]">
 
-      {/* Left Image */}
+      
       <div className="w-full md:w-1/2 h-[50vh]">
         <img
           src={IMAGES.drinkImage}
@@ -24,7 +24,7 @@ const Drink = () => {
         />
       </div>
 
-      {/* Right Content */}
+    
       <div className="flex flex-col justify-center w-full px-4 py-8 space-y-4 text-left sm:px-6 md:px-12 lg:px-24 bg-white md:w-1/2 h-[50vh] dark:bg-[#6B6E70]">
       <motion.div 
           initial={{ opacity: 0, x: +10 }}

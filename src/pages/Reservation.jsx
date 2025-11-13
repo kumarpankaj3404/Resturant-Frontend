@@ -67,7 +67,7 @@ const ReservationSection = () => {
       
       
       <div className="absolute inset-0 bg-black/20"></div>
-      <div className="w-full h-20 bg-[#48352f]"></div>
+     
       <div
         aria-label="Reservation Section"
       className="relative flex flex-col w-full min-h-screen bg-fixed bg-center bg-contain"

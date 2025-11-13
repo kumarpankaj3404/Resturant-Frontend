@@ -14,7 +14,7 @@ const Eat = () => {
   return (
     <section className="w-full flex flex-col md:flex-row min-h-[50vh] md:h-[50vh]">
 
-      {/* Left Content */}
+     
       <div className="flex flex-col justify-center w-full px-4 py-8 sm:px-6 md:px-12 lg:px-24 space-y-4 text-left bg-[#F6ECE3] dark:bg-[#222629] md:w-1/2 h-[50vh]">
         <motion.div 
           initial={{ opacity: 0, x: -100 }}
@@ -54,7 +54,7 @@ const Eat = () => {
         </div>
       </div>
 
-      {/* Right Image */}
+
       <div className="w-full md:w-1/2 h-[50vh]">
         <img
           src={IMAGES.eatImage}

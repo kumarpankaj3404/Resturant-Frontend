@@ -14,8 +14,6 @@ const Welcome = () => {
     
     <section className="flex flex-col-reverse items-center w-full min-h-screen px-4 py-10 space-x-10 dark:bg-black bg-[#f7e7e2] sm:px-6 md:flex-row md:px-10 lg:px-24  ">
 
-      {/* Left Image */}
-      
       <motion.div
         className="w-full mt-10 md:mt-0 md:w-1/2 md:mr-10 dark:bg-black"
         initial={{scale:0}}
@@ -33,7 +31,6 @@ const Welcome = () => {
         />
       </motion.div>
 
-      {/* Right Content */}
       <motion.div
         className="w-full space-y-5 text-center text-black md:w-1/2 md:text-left"
         initial={{y: 100,rotate:0, opacity:0 }}

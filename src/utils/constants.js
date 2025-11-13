@@ -13,7 +13,7 @@ export const NAV_LINKS = [
   { text: "RESERVATION", path: "/reservation" },
   { text: "GALLERY", path: "/gallery" },
   { text: "ABOUT", path: "/about" },
-  { text: "REVIEW", path: "/review" }
+
 ];
 
 // Contact Information

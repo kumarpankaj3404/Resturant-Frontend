@@ -1,43 +1,69 @@
+
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/common/Navbar';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import AppRoutes from './routes/AppRoutes';
 import Footer from './components/common/Footer';
-import { motion } from "framer-motion"; // Corrected import
+import { motion } from "framer-motion";
 import { RESTAURANT_NAME } from "./utils/constants";
 import 'primeicons/primeicons.css';
+import LoginModal from './components/profile/LoginModal';
+import ProfilePage from './components/profile/ProfilePage';
 
-function App() {
-  // Initialize state based on whether 'hasVisited' is in sessionStorage
+function AppContent() {
   const [showWelcome, setShowWelcome] = useState(!sessionStorage.getItem('hasVisited'));
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // If the welcome screen is shown, set the flag in sessionStorage
-    // and then hide the welcome screen after the animation completes.
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+      setIsLoggedIn(true);
+      setUser(JSON.parse(savedUser));
+    }
+  }, []);
+
+  useEffect(() => {
     if (showWelcome) {
       sessionStorage.setItem('hasVisited', 'true');
-
-      // Total animation time is delay (2s) + duration (2s) = 4s
-      const timer = setTimeout(() => {
-        setShowWelcome(false);
-      }, 4000); 
-
+      const timer = setTimeout(() => setShowWelcome(false), 4000);
       return () => clearTimeout(timer);
     }
-  }, [showWelcome]); // Only run this effect when showWelcome changes
+  }, [showWelcome]);
+
+  const openLoginModal = () => setIsModalOpen(true);
+  const closeLoginModal = () => setIsModalOpen(false);
+
+  const handleLoginSuccess = (userData) => {
+    const userInfo = userData || { name: 'Guest', email: '', role: 'user' };
+    setIsLoggedIn(true);
+    setUser(userInfo);
+    localStorage.setItem('user', JSON.stringify(userInfo)); 
+    closeLoginModal();
+    navigate('/profile');
+  };
+
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUser(null);
+    localStorage.removeItem('user'); 
+    navigate('/');
+  };
 
   return (
-    <BrowserRouter>
+    <>
       {showWelcome ? (
         <motion.div
           initial={{ opacity: 1, scale: 1 }}
           animate={{ opacity: 0, scale: 50 }}
           transition={{ delay: 2, duration: 2 }}
         >
-          <div className="z-10 font-bold text-center text-white max-w-10xl text-10xl text-outline bg-black h-screen flex flex-col justify-center items-center">
+          <div className="z-10 font-bold text-center text-white bg-black h-screen flex flex-col justify-center items-center">
             <motion.h1
-              tabIndex={0}
               className="mb-8 tracking-widest uppercase font-heading sm:text-xl md:text-5xl dark:text-white-shadow"
               initial={{ y: -150, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -45,9 +71,7 @@ function App() {
             >
               Welcome to
             </motion.h1>
-
             <motion.h2
-              tabIndex={0}
               className="text-3xl font-bold leading-tight mb-14 sm:text-4xl md:text-6xl font-heading dark:text-white-shadow"
               initial={{ y: +150, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -58,12 +82,36 @@ function App() {
           </div>
         </motion.div>
       ) : (
-        <div>
-          <Navbar />
-          <AppRoutes />
+        <>
+          <Navbar onLoginClick={openLoginModal} />
+          <main className="min-h-[80vh]">
+            <Routes>
+              <Route path="/*" element={<AppRoutes onLoginClick={openLoginModal} />} />
+              {isLoggedIn && (
+                <Route
+                  path="/profile"
+                  element={<ProfilePage onLogout={handleLogout} user={user} />}
+                />
+              )}
+            </Routes>
+          </main>
           <Footer />
-        </div>
+          {isModalOpen && (
+            <LoginModal
+              onClose={closeLoginModal}
+              onLoginSuccess={handleLoginSuccess}
+            />
+          )}
+        </>
       )}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 }
