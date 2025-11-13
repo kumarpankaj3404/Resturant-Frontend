@@ -7,12 +7,15 @@ import { Provider } from 'react-redux';
 import { store, persistor } from './app/store.js';
 import { PersistGate } from 'redux-persist/integration/react';
 import ThemeProvider from './app/ThemeProvider.jsx';
+import { CookiesProvider } from 'react-cookie';
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <ThemeProvider>
-        <App />
+        <CookiesProvider>
+          <App />
+        </CookiesProvider>
       </ThemeProvider>
     </PersistGate>
   </Provider>

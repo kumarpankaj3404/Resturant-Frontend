@@ -1,0 +1,25 @@
+/* CustomCarousel.css */
+
+/* Target the indicator container */
+.p-carousel-indicators {
+    /* Optional: Ensure the indicators are clearly visible below the slide content */
+    margin-top: 3rem;
+    padding-bottom: 1rem;
+}
+
+/* Target the individual indicator dot/element */
+.p-carousel-indicator button {
+    /* Change the color of the dot/button to white */
+    background-color: rgb(124, 120, 120) !important; 
+    border: 1px solid rgb(0, 0, 0) !important; /* Optional: Give it a white border */
+    width: 0.75rem;
+    height: 0.75rem;
+    transition: background-color 0.3s;
+}
+
+/* Target the indicator dot for the ACTIVE slide */
+.p-carousel-indicator.p-highlight button {
+    /* Make the active dot a different color (e.g., your primary restaurant color) */
+    background-color: #ff6347 !important; /* Example: Tomato Red for visibility */
+    border-color: #ff6347 !important;
+}

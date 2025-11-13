@@ -153,6 +153,7 @@ const Footer = () => {
           <div className="flex space-x-6 font-body">
             <a
               href={SOCIAL_LINKS.facebook}
+              target='_blank'
               className="flex items-center transition hover:text-[#bd9a8d] hover:dark:text-[#86C232]"
             >
               <FaFacebookF className="w-5 h-5 mr-1" />
@@ -160,6 +161,7 @@ const Footer = () => {
             </a>
             <a
               href={SOCIAL_LINKS.twitter}
+              target='_blank'
               className="flex items-center transition hover:text-[#bd9a8d] hover:dark:text-[#86C232]"
             >
               <FaTwitter className="w-5 h-5 mr-1" />
@@ -167,6 +169,7 @@ const Footer = () => {
             </a>
             <a
               href={SOCIAL_LINKS.instagram}
+              target='_blank'
               className="flex items-center transition hover:text-[#bd9a8d] hover:dark:text-[#86C232]"
             >
               <FaInstagram className="w-5 h-5 mr-1" />

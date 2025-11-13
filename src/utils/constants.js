@@ -136,3 +136,27 @@ export const PLACEHOLDERS = {
   phone: "+91 12345 67890",
   email: "you@example.com"
 };
+
+export const aboutUsSlides = [
+    {
+        id: 1,
+        title: "Our Founding Flavor",
+        content: "More than a restaurant, we're a dream realized. Our kitchen was born from a simple idea: to serve food that tastes like home, but with an adventurous twist. Every recipe is a tribute to passion, quality, and community.",
+        image: "https://i.pinimg.com/1200x/7e/a7/fc/7ea7fcc8dfb329f5f90cf50a146d4446.jpg", // Use the correct path to your image
+        alt: "Founder in the kitchen"
+    },
+    {
+        id: 2,
+        title: "From Farm to Fork",
+        content: "We believe the best food starts with the best ingredients. That’s why we partner with local farmers and sustainable suppliers. Our menu is a celebration of fresh, seasonal bounty, ensuring every bite is vibrant and responsible.",
+        image: "https://i.pinimg.com/1200x/5f/54/23/5f542380285d36cc2e88484308b73035.jpg",
+        alt: "Signature dish"
+    },
+    {
+        id: 3,
+        title: "Your Table Awaits",
+        content: "Come for the food, stay for the feeling. Our space is designed to be your urban escape—a place where laughter is loud and meals are lingering. Whether it's a quick lunch or a special night, make our table yours.",
+        image: "https://i.pinimg.com/736x/5a/1a/d8/5a1ad848d9eb28660342d6eab2c0a266.jpg",
+        alt: "Restaurant interior"
+    }
+];
