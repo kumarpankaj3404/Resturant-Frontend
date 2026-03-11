@@ -1,4 +1,5 @@
-
+import { useSelector } from "react-redux";
+import { selectIsAuthenticated } from "../features/auth/authSlice"; 
 import React, { useState } from "react";
 import {
   RESERVATION_SECTION,
@@ -11,7 +12,7 @@ import Button from "../components/common/Button";
 import InputField from "../components/reservation/InputField";
 import SelectField from "../components/reservation/SelectField";
 
-const ReservationSection = () => {
+const ReservationSection = ({onLoginClick}) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -29,34 +30,44 @@ const ReservationSection = () => {
       [name]: value,
     }));
   };
-
+ 
+  const isAuthenticated = useSelector(selectIsAuthenticated);
   const handleSubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (formData.timeFrom && formData.timeTo) {
-      const fromIndex = RESERVATION_TIMES_FROM.findIndex(
-        (t) => t.value === formData.timeFrom
-      );
-      const toIndex = RESERVATION_TIMES_TO.findIndex(
-        (t) => t.value === formData.timeTo
-      );
-      if (toIndex <= fromIndex) {
-        alert("Please select a 'To' time later than 'From' time.");
-        return;
-      }
+  // 🔒 If not logged in → open login modal
+  if (!isAuthenticated) {
+    onLoginClick();
+    return;
+  }
+
+  // Time validation
+  if (formData.timeFrom && formData.timeTo) {
+    const fromIndex = RESERVATION_TIMES_FROM.findIndex(
+      (t) => t.value === formData.timeFrom
+    );
+    const toIndex = RESERVATION_TIMES_TO.findIndex(
+      (t) => t.value === formData.timeTo
+    );
+
+    if (toIndex <= fromIndex) {
+      alert("Please select a 'To' time later than 'From' time.");
+      return;
     }
+  }
 
-    alert("Reservation submitted successfully! We will contact you shortly.");
-    setFormData({
-      name: "",
-      phone: "",
-      timeFrom: "",
-      timeTo: "",
-      people: "",
-      date: "",
-      email: "",
-    });
-  };
+  alert("Reservation submitted successfully! We will contact you shortly.");
+
+  setFormData({
+    name: "",
+    phone: "",
+    timeFrom: "",
+    timeTo: "",
+    people: "",
+    date: "",
+    email: "",
+  });
+};
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -64,8 +75,7 @@ const ReservationSection = () => {
     <section
       
     >
-      
-      
+            
       <div className="absolute inset-0 bg-black/20"></div>
      
       <div
