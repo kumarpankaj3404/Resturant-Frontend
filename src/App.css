@@ -19,3 +19,12 @@
 .font-desc{
     font-family: 'Arial', sans-serif;
 }
+
+
+.bg-ordercost{
+    background-color:rgb(241, 241, 224);
+}
+.bg-orderwarning{
+    background-color:rgb(233, 224, 211);
+}
+

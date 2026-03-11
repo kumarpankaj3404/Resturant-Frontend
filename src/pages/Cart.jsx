@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { addItem, incrementItem, decrementItem ,deleteItem } from "../features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
+import { sub } from "motion/react-client";
 const Cart = () => {
   const items = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
@@ -8,19 +9,22 @@ const Cart = () => {
 
   const arr = Object.values(items);
   console.log(arr);
-  let total = 0;
+  let subTotal = 0;
   let itemsQuantity = 0;
+  const discount = 0;
   arr.forEach((item) => {
-    total += item.Price * item.qty;
+    subTotal += item.price * item.qty;
     itemsQuantity += item.qty;
   });
+
+  const total = (subTotal + (subTotal * 0.09)) - discount; // Including 9% tax
   const handleAddItems = () => {
     navigate('/menu/starters-snacks');
   }
 
   return (
     <div className="">
-       <div className="lg:m-20 lg: md:m-6 m-4   ">
+    <div className="lg:m-20 lg: md:m-6 m-4   ">
       <h1 className="text-5xl  font-bold mb-4 text-center">Your <span className="text-cyan-600">Cart</span></h1>
       <p className="font-bold text-gray-500 text-sm">You have <span className="text-cyan-600">{itemsQuantity} items</span>  in your order</p>
       <div className="border-2 border-gray-200 m-4 p-4">
@@ -34,16 +38,16 @@ const Cart = () => {
         {arr.map((item) => (
           <div key={item._id} className="flex justify-between items-center mt-2 text-center border-b-2 border-gray-200 pb-2 pt-2">
             <div className="flex items-start space-x-4 w-80">
-              <img src={item.Thumbnail} alt="" className="w-24 h-24"/>
+              <img src={item.menuThumbnail} alt="" className="w-24 h-24"/>
               <div className="text-left text-sm text-gray-400 font">
-                <h1 className="text-lg text-black font-heading ">{item.Name}</h1>
-                <h1 className="" >{item.Category}</h1>
-                <h1>{item.Cuisine_Type}</h1>
+                <h1 className="text-lg text-black font-heading ">{item.name}</h1>
+                <h1 className="" >{item.category}</h1>
+                <h1>{item.cuisine}</h1>
               </div>
               
             </div>
             
-            <h1 className="w-24">${item.Price}</h1>
+            <h1 className="w-24">${item.price}</h1>
             <div className="flex items-center justify-center space-x-2 ">
               <button
                 onClick={() => dispatch(decrementItem(item._id))}
@@ -76,20 +80,75 @@ const Cart = () => {
                 </svg>
               </button>
             </div>
-            <h1 className="w-24">${(item.Price * item.qty).toFixed(2)}</h1>
+            <h1 className="w-24">${(item.price * item.qty).toFixed(2)}</h1>
           </div>
         ))}
         </div>
-        <div className="text-right text-2xl font-bold mt-4">SUBTOTAL - ${total}</div>
+        {/* <div className="text-right text-2xl font-bold mt-4">SUBTOTAL - ${total}</div> */}
 
         <div className="flex justify-between items-center mt-4">
-          <div className="text-xl border-2  font-bold bg-cyan-600 w-56 text-white text-center pt-2 pb-2 rounded-lg  hover:border-cyan-600 hover:bg-white hover:text-cyan-600 transition-all duration-300 cursor-pointer " onClick={handleAddItems}>ADD ITEMS</div>
-          <div className="text-xl border-2  font-bold bg-cyan-600 w-56 text-white text-center pt-2 pb-2 rounded-lg  hover:border-cyan-600 hover:bg-white hover:text-cyan-600 transition-all duration-300 cursor-pointer">CHECKOUT</div>
+          <div className="text-lg border-2  font-bold bg-cyan-600 w-36 text-white text-center py-1 rounded-lg  hover:border-cyan-600 hover:bg-white hover:text-cyan-600 transition-all duration-300 cursor-pointer " onClick={handleAddItems}>ADD ITEMS</div>
 
+          </div>
         </div>
-      </div>
 
-       </div>
+     </div>
+      <div className="flex flex-col md:flex-row justify-between items-center mt-6 p-4 bg-gradient-to-r from-green-400  to-green-600  px-16 lg:mb-14" >
+          <h1 className="font-bold " >Rewards and Offers ✨</h1>
+          <div className="cursor-pointer">
+            Offers
+          </div>
+        </div>
+
+        <div className="flex flex-col lg:py-10 lg:px-20 bg-ordercost gap-2">
+        <h1 className="text-md font-bold">BILL DETAILS</h1>
+        <div className="flex justify-between lg:mt-8">
+          <h1>Sub Total</h1>
+          <h1>${subTotal.toFixed(2)}</h1>
+        </div>
+        <div className="flex justify-between ">
+          <h1>Discount</h1>
+          <h1 className="text-green-800">-0.00</h1>
+        </div>
+        <div className="flex justify-between lg:pb-6">
+          <h1>Taxes</h1>
+          <h1 className="">${(subTotal*0.09).toFixed(2)}</h1>
+        </div>
+
+        {/* Total */}
+        <div className="flex justify-between lg:py-5 border-t-2 border-gray-400">
+          <h1>Total</h1>
+          <h1 className="">${total.toFixed(2)}</h1>
+        </div>
+        </div>
+
+        <div className="lg:my-14 lg:mx-20 bg-orderwarning p-3 rounded-xl">
+          <h1 className="text-lg font-medium"><span className="text-red-500">!!</span> Order once placed cannot be cancelled <span className="text-red-500">!!</span></h1>
+          <p>Review your order and address details to avoid cancellations. Please avoid cancellations to prevent food wastage.
+          </p>
+        </div>
+
+        { arr.length > 0 ? (
+          <div className="">
+            <div className="flex lg:px-20 lg:py-3 justify-between items-center bg-green-500">
+              <div>
+                <p className="text-xs font-bold text-cyan-600">{itemsQuantity} ITEM ADDED</p>
+                <h1>{arr[0].Name} {itemsQuantity > 1 ? ("...+" + (itemsQuantity-1) + " items") : "" }</h1>
+              </div>
+              <div>
+                <h1 className="font-semibold text-lg">TOTAL - ${total.toFixed(2)}</h1>
+              </div>
+            </div>
+            <div className="flex  lg:px-20 lg:py-3 justify-between items-center bg-green-700">
+              <button className="">PAYMENT</button>
+            </div>
+          </div>
+        ) : (
+          <div></div>
+        )}
+        
+
+        
     </div>
   );
 };

@@ -25,18 +25,15 @@ const responsiveOptions = [
     }
   ];
   const itemTemplate = (item) => {
-    return <img src={item} alt="Hero" className="w-[50svw] h-[60svh] object-cover rounded-lg shadow-md" />;
-  }
-  const thumbnailTemplate = (item) => {
-    return <img src={item} alt="Hero Thumbnail" className="w-36 h-24 object-cover rounded-lg shadow-md mt-7 " />;
+    return <img src={item} alt="Hero" className="w-[60svw] h-[60svh] object-cover rounded-lg shadow-md mt-5" />;
   }
 
   return (
     <section className="mb-12 ">
 
-      <div className=" flex items-center justify-between w-screen  "  >
-        <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} 
-                item={itemTemplate} thumbnail={thumbnailTemplate} circular autoPlay transitionInterval={2000}  />
+      <div className=" flex items-center justify-between w-screen  px-20"  >
+        <Galleria value={images} responsiveOptions={responsiveOptions} 
+                item={itemTemplate} showThumbnails={false}  circular autoPlay transitionInterval={2000}  />
         
         <div className="w-[70svw] flex items-center justify-center">
           <motion.div

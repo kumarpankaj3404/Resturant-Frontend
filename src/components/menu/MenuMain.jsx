@@ -1,9 +1,13 @@
 import { div } from "motion/react-client";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, incrementItem, decrementItem } from "../../features/cart/cartSlice";
+import { useState } from "react";
+import api from "../../utils/api.js";
+import { useEffect } from "react";
+import { menuitem } from "motion/react-m";
 
 const MenuMain = (props) => {
-  const menuItems = [
+  const menuData = [
     {
       "_id": "itm001",
       "Category": "Starters",
@@ -205,67 +209,95 @@ const MenuMain = (props) => {
       "Availability": true
     }
   ]
+  const [menuItems, setMenuItems] = useState([]);
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
+  const [Loading, setLoading] = useState(true);
+
+  useEffect(()=>{
+    try {
+      api.get("/menu/getMenuItem")
+      .then((res)=>{
+        if(res.data.statusCode === 200){
+        setMenuItems(res.data.data);
+        console.log("Menu API:", menuItems);
+        setLoading(false); 
+      }
+      })
+      .catch((err)=>{
+        console.log("Error fetching menu items:", err); 
+      })
+    } catch (error) {
+      console.log("Error in Menu API call:", error);
+    }
+  },[]);
+
+  
+
+
+
 
   const type = props.category.replace(/-/g, ' & ').replace(/_/g, ' ').toUpperCase();
   const menuItemsFiltered = menuItems.filter(item => {
     if (props.category === 'starters-snacks') {
-      return item.Category.toLowerCase() === 'starters';
+      return item.category.toLowerCase() == 'starters';
     } else {
-      return item.Category.toLowerCase() === props.category.replace(/-/g, ' ').replace(/_/g, ' ').toLowerCase();
+      return item.category.toLowerCase() === props.category.replace(/-/g, ' ').replace(/_/g, ' ').toLowerCase();
     }
   });
+  // console.log("Filtered Menu Items:", menuItemsFiltered);
 
   return (
     <div>
       <h1 className="text-center text-4xl font-thin">{type}</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 m-4 sm:m-8 md:m-16">
-        {menuItemsFiltered.map((item, index) => (
-          <div
-            key={index}
-            className="border-2 border-b-gray-300 hover:shadow-lg hover:shadow-slate-700 hover:scale-105 p-4 rounded-lg shadow-md flex items-center transition-all duration-300"
-            style={{ transitionProperty: 'box-shadow, transform' }}
-          >
+        {Loading ? "Loading" :  ( menuItemsFiltered.map((item) => (
+          <>
+            <div
+              key={item._id}
+              className="border-2 border-b-gray-300 hover:shadow-lg hover:shadow-slate-700 hover:scale-105 p-4 rounded-lg shadow-md flex items-center transition-all duration-300"
+              style={{ transitionProperty: 'box-shadow, transform' }}
+            >
+              <img src={item.menuThumbnail} alt="Loading..." className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-24 rounded-full mr-4" />
+              <div>
 
-            <img src={item.Thumbnail} alt="Loading..." className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-24 rounded-full mr-4" />
-            <div>
+                <h2 className="text-xl font-bold font-serif">{item.name}</h2>
+                <h3 className="text-lg font-light italic ">{item.cuisine}</h3>
+                <p className="text-sm text-gray-600 font-light">{item.description}</p>
+                <br /><br /><br />
+                <div className="flex items-center justify-between">
 
-              <h2 className="text-xl font-bold font-serif">{item.Name}</h2>
-              <h3 className="text-lg font-light italic ">{item.Cuisine_Type}</h3>
-              <p className="text-sm text-gray-600 font-light">{item.Description}</p>
-              <br /><br /><br />
-              <div className="flex items-center justify-between">
-
-                <p>₹{item.Price}</p>
-                <div className="w-24">
-                  {cartItems[item._id] ? (
-                    <div className="w-24 flex items-center justify-between ">
-                      <button onClick={() => dispatch(decrementItem(item._id))} className="bg-green-500 w-6 rounded-full hover:bg-green-600 transition-colors duration-300 text-center">
-                        -
-                      </button>
-                      <div className="w-12  text-center">
-                        {cartItems[item._id].qty}
+                  <p>₹{item.price}</p>
+                  <div className="w-24">
+                    {cartItems[item._id] ? (
+                      <div className="w-24 flex items-center justify-between ">
+                        <button onClick={() => dispatch(decrementItem(item._id))} className="bg-green-500 w-6 rounded-full hover:bg-green-600 transition-colors duration-300 text-center">
+                          -
+                        </button>
+                        <div className="w-12  text-center">
+                          {cartItems[item._id].qty}
+                        </div>
+                        <button onClick={() => dispatch(incrementItem(item._id))} className="bg-green-500 w-6 rounded-full hover:bg-green-600 transition-colors duration-300 text-center">
+                          +
+                        </button>
                       </div>
-                      <button onClick={() => dispatch(incrementItem(item._id))} className="bg-green-500 w-6 rounded-full hover:bg-green-600 transition-colors duration-300 text-center">
-                        +
+                    ) : (
+                      <button onClick={() => dispatch(addItem(item))} className="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600 transition-colors duration-300">
+                        Add Item
                       </button>
-                    </div>
-                  ) : (
-                    <button onClick={() => dispatch(addItem(item))} className="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600 transition-colors duration-300">
-                      Add Item
-                    </button>
-                  )}
+                    )}
 
+
+                  </div>
 
                 </div>
 
               </div>
 
             </div>
-
-          </div>
-        ))}
+        </>
+          
+        )))}
       </div>
     </div>
   )
