@@ -14,7 +14,9 @@ export default function AppRoutes({ onLoginClick }) {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/reservation" element={<Reservation />} />
+      <Route
+      path="/reservation"
+      element={<Reservation onLoginClick={onLoginClick} />}/>
       
       
       <Route path="/menu" element={<Navigate to="/menu/starters-snacks" />} />

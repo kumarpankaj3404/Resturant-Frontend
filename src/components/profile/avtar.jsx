@@ -1,8 +1,21 @@
 
-import React from 'react';
-import { IoRestaurant } from 'react-icons/io5'; 
 
+import { useSelector } from "react-redux";
+import { selectIsAuthenticated } from "../../features/auth/authSlice"; // adjust path
+import { useEffect } from "react";
+import { IoRestaurant } from 'react-icons/io5'; 
+import { useNavigate, useLocation } from "react-router-dom";
 const Avtar = ({ onLoginClick }) => {
+  const navigate = useNavigate();
+const location = useLocation();
+const isAuthenticated = useSelector(selectIsAuthenticated);
+
+useEffect(() => {
+  if (isAuthenticated) {
+    navigate(location.state?.from || "/");
+  }
+}, [isAuthenticated, navigate, location]);
+
   return (
 
     <div className="relative flex flex-col min-h-screen bg-[#f9f6f2] dark:bg-gray-900 font-sans text-gray-800 dark:text-gray-200 overflow-hidden">
